@@ -8,6 +8,7 @@ import android.util.Log
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import com.wojiaowanghaha.learnkotlin.R
+import com.wojiaowanghaha.learnkotlin.lifecycle.MyObserver
 import kotlinx.android.synthetic.main.activity_view_model.*
 
 class ViewModelActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class ViewModelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_model)
+        lifecycle.addObserver(MyObserver())
         sp = getPreferences(Context.MODE_PRIVATE)
         val countReserved = sp.getInt(COUNT_RESERVED,0)
         viewModel = ViewModelProvider(this,MainViewModelFactory(countReserved)).
