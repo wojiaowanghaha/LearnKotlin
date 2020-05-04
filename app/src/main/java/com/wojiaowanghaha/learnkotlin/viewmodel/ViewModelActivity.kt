@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.content.edit
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.wojiaowanghaha.learnkotlin.R
 import com.wojiaowanghaha.learnkotlin.lifecycle.MyObserver
@@ -32,9 +33,9 @@ class ViewModelActivity : AppCompatActivity() {
         btnClear.setOnClickListener {
             viewModel.clear()
         }
-//        viewModel.counter.observe(this, Observer {
-//            count -> tv_info.text = count.toString()
-//        })
+        viewModel.counter.observe(this, Observer {
+            count -> tv_info.text = count.toString()
+        })
 //        viewModel.counter.observe(this){}
     }
 
