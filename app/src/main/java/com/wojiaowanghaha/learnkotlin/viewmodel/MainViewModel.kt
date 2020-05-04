@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.wojiaowanghaha.learnkotlin.livedata.Repository
 
 /**
  *
@@ -19,9 +20,14 @@ class MainViewModel(countReserved: Int) : ViewModel() {
     private var _counter = MutableLiveData<Int>()
 
     private val  userLiveData = MutableLiveData<User>()
+    private val  userIdLiveData = MutableLiveData<String>()
 
     val userName :LiveData<String> = Transformations.map(userLiveData){
         user -> "${user.fristName} ${user.lastName}"
+    }
+
+    val user:LiveData<User> = Transformations.switchMap(userIdLiveData){
+        userId -> Repository.getUser(userId)
     }
 
     init {
@@ -40,5 +46,9 @@ class MainViewModel(countReserved: Int) : ViewModel() {
 
     fun clear() {
         _counter.value = 0
+    }
+
+    fun getUser(userId : String){
+        userIdLiveData.value = userId
     }
 }

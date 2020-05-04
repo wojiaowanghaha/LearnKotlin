@@ -33,10 +33,18 @@ class ViewModelActivity : AppCompatActivity() {
         btnClear.setOnClickListener {
             viewModel.clear()
         }
+        btnGetUser.setOnClickListener {
+            val userId = (0 .. 10000).random().toString()
+            viewModel.getUser(userId)
+        }
         viewModel.counter.observe(this, Observer {
             count -> tv_info.text = count.toString()
         })
 //        viewModel.counter.observe(this){}
+
+        viewModel.user.observe(this, Observer {
+            user -> tv_info.text = user.fristName
+        })
     }
 
 //    private fun refreshCount() {
