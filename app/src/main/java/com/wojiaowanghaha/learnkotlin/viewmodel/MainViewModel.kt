@@ -2,6 +2,7 @@ package com.wojiaowanghaha.learnkotlin.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 /**
@@ -16,6 +17,12 @@ class MainViewModel(countReserved: Int) : ViewModel() {
     val counter: LiveData<Int> get() = _counter
 
     private var _counter = MutableLiveData<Int>()
+
+    private val  userLiveData = MutableLiveData<User>()
+
+    val userName :LiveData<String> = Transformations.map(userLiveData){
+        user -> "${user.fristName} ${user.lastName}"
+    }
 
     init {
         _counter.value = countReserved
