@@ -9,6 +9,6 @@ import androidx.lifecycle.ViewModel
  * 描述：
  *
  */
-class MainViewModel :ViewModel(){
-    var count = 0
+class MainViewModel(countReserved :Int) :ViewModel(){
+    var count = countReserved
 }
