@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.wojiaowanghaha.learnkotlin.R
 import com.wojiaowanghaha.learnkotlin.lifecycle.MyObserver
 import kotlinx.android.synthetic.main.activity_view_model.*
+import kotlin.concurrent.thread
 
 class ViewModelActivity : AppCompatActivity() {
     lateinit var viewModel: MainViewModel
@@ -24,19 +25,22 @@ class ViewModelActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this,MainViewModelFactory(countReserved)).
         get(MainViewModel::class.java)
         btn_plus.setOnClickListener {
-            viewModel.count++
-            refreshCount()
+            thread {
+                viewModel.plusOneThread()
+            }
         }
         btnClear.setOnClickListener {
-            viewModel.count = 0
-            refreshCount()
+            viewModel.clear()
         }
-        refreshCount()
+//        viewModel.counter.observe(this, Observer {
+//            count -> tv_info.text = count.toString()
+//        })
+//        viewModel.counter.observe(this){}
     }
 
-    private fun refreshCount() {
-        tv_info.text = viewModel.count.toString()
-    }
+//    private fun refreshCount() {
+//        tv_info.text = viewModel.count.toString()
+//    }
 
 
     override fun onResume() {
@@ -58,7 +62,7 @@ class ViewModelActivity : AppCompatActivity() {
         super.onStart()
         Log.e("ViewModelActivity","onStart")
         sp.edit{
-            putInt(COUNT_RESERVED,viewModel.count)
+            putInt(COUNT_RESERVED,viewModel.counter.value ?:0)
         }
     }
 
