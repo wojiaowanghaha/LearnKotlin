@@ -1,5 +1,8 @@
 package com.wojiaowanghaha.learnkotlin.viewmodel
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
  *
  * @author wanghaha
@@ -7,4 +10,8 @@ package com.wojiaowanghaha.learnkotlin.viewmodel
  * 描述：
  *
  */
-data class User(var fristName:String,var lastName:String,var age :Int)
+@Entity
+data class User(var fristName:String,var lastName:String,var age :Int){
+    @PrimaryKey
+    var id:Long =0
+}

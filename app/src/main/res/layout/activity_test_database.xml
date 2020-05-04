@@ -4,50 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".TestDatabaseActivity">
 
-    <TextView
-        android:id="@+id/textview_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_first_fragment"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_first"
-        android:layout_width="wrap_content"
+        android:id="@+id/addUserBtn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/next"
+        android:text="addUser"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first" />
-
-    <Button
-        android:id="@+id/btnViewModel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ViewModel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <Button
-        android:id="@+id/dataBaseBtn"
-        android:layout_width="wrap_content"
+        android:id="@+id/updateDataBtn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="dataBase"
+        android:text="updateData"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnViewModel"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintTop_toBottomOf="@+id/addUserBtn"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <Button
+        android:id="@+id/deleteDataBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="deleteData"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateDataBtn"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <Button
+        android:id="@+id/queryDataBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="queryData"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteDataBtn"
+        app:layout_constraintVertical_bias="0.086" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

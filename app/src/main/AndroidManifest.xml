@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewmodel.ViewModelActivity"></activity>
+        <activity android:name=".TestDatabaseActivity"></activity>
+        <activity android:name=".viewmodel.ViewModelActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

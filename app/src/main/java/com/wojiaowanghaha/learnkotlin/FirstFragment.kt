@@ -33,5 +33,11 @@ class FirstFragment : Fragment() {
             var intent = Intent(activity,ViewModelActivity::class.java)
             startActivity(intent)
         }
+        view.findViewById<Button>(R.id.dataBaseBtn).setOnClickListener {
+            var intent = Intent(activity,TestDatabaseActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }
