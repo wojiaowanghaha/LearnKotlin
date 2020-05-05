@@ -104,6 +104,30 @@ class TestDatabaseActivity : AppCompatActivity() {
             val db = dbHelper.writableDatabase
             db.delete("Book","pages >?", arrayOf("70"))
         }
+
+        replaceDataSqliteBtn.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            db.beginTransaction()
+
+            try {
+                db.delete("Book",null,null)
+                //手动抛出一个异常，让事务失败
+//                    throw NullPointerException()
+                val values = ContentValues().apply {
+                    put("name","Game of Thrones")
+                    put("author","Game of Thrones")
+                    put("pages","George Martin")
+                    put("price",20.85)
+                }
+                db.insert("Book",null,values)
+                //事务已经执行成功
+                db.setTransactionSuccessful()
+            }catch (e:Exception){
+                e.printStackTrace()
+            }finally {
+                db.endTransaction()
+            }
+        }
     }
 }
 
