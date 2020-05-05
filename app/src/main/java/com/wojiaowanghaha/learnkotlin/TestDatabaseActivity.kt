@@ -1,8 +1,10 @@
 package com.wojiaowanghaha.learnkotlin
 
+import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.wojiaowanghaha.learnkotlin.sqllite.MyDatabaseHelper
 import com.wojiaowanghaha.learnkotlin.viewmodel.User
 import kotlinx.android.synthetic.main.activity_test_database.*
 import kotlin.concurrent.thread
@@ -15,6 +17,8 @@ class TestDatabaseActivity : AppCompatActivity() {
         var userDao = AppDatabase.getDatabase(this).userDao()
         val user1 = User("Tom","Brady",40)
         val user2 = User("Tom","Hanks",63)
+
+        val dbHelper = MyDatabaseHelper(this,"BookStore.db",1)
 
         addUserBtn.setOnClickListener {
             thread {
@@ -45,14 +49,61 @@ class TestDatabaseActivity : AppCompatActivity() {
             }
         }
 
+        crateDatabaseSqLite.setOnClickListener {
+            dbHelper.writableDatabase
+        }
 
+        addDataSQLLiteBtn.setOnClickListener {
+          val db =  dbHelper.writableDatabase
+            val values1 = ContentValues().apply {
+                //开始组装第一条数据
+                put("name","The Da Vinci  Code")
+                put("author","Dan Brown")
+                put("pages",520)
+                put("price",19.93)
+            }
+            db.insert("Book", null,values1)
 
+            val value2 = ContentValues().apply {
+                //开始组装第二条数据
+                put("name","The Lost Symbol")
+                put("author","Dan Brown")
+                put("pages",510)
+                put("price",19.95)
+            }
+            db.insert("Book",null,value2)
+        }
+        queryDataSQLLiteBtn.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            //查询数据
+            val cursor = db.query("Book",null,null,
+                null,null,null,null)
+            if(cursor.moveToFirst()){
+                do{
+                    //遍历Cursor对象，取出数据并打印
+                    val  name = cursor.getString(cursor.getColumnIndex("name"))
+                    val  author = cursor.getString(cursor.getColumnIndex("author"))
+                    val  pages  = cursor.getInt(cursor.getColumnIndex("pages"))
+                    val  price  = cursor.getDouble(cursor.getColumnIndex("price"))
 
+                    Log.d(this.javaClass.name,"book name is $name pages is $pages price is" +
+                            "$price author is $author"  )
 
+                }while (cursor.moveToNext())
+            }
+            cursor.close()
+        }
+        updateDataSQLLitelBtn.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            val value = ContentValues()
+            value.put("price",10.99)
+            db.update("Book",value,"name = ?", arrayOf("The Da Vinci  Code"))
+        }
 
-
-
-
+        deleteDataSqlLiteBtn.setOnClickListener {
+            val db = dbHelper.writableDatabase
+            db.delete("Book","pages >?", arrayOf("70"))
+        }
     }
 }
 

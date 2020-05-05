@@ -26,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
             instance?.let { return it }
             return Room.databaseBuilder(
                 context.applicationContext,
-                AppDatabase::class.java, "app_database"
+                AppDatabase::class.java, "app_database.db"
             ).build()
                 .apply { instance = this }
         }

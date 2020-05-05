@@ -26,10 +26,10 @@
         android:text="updateData"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addUserBtn"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/deleteDataBtn"
@@ -38,10 +38,10 @@
         android:text="deleteData"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateDataBtn"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/queryDataBtn"
@@ -50,11 +50,70 @@
         android:text="queryData"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deleteDataBtn"
-        app:layout_constraintVertical_bias="0.086" />
+        app:layout_constraintVertical_bias="0.0" />
 
+    <Button
+        android:id="@+id/crateDatabaseSqLite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Create Database SQL Lite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/queryDataBtn"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <Button
+        android:id="@+id/addDataSQLLiteBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="addDataSQLLite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crateDatabaseSqLite"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/queryDataSQLLiteBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Query Data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addDataSQLLiteBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/updateDataSQLLitelBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="UPDATE DATA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/queryDataSQLLiteBtn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/deleteDataSqlLiteBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="DELETE DATA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateDataSQLLitelBtn"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
